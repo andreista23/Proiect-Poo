@@ -49,9 +49,6 @@ public:
         os << "length: " << grid.length << " width: " << grid.width;
         return os;
     }
-    Grid& operator=([[maybe_unused]] int x){
-        return *this;
-    }
 };
 
 class Snake{
@@ -88,7 +85,7 @@ public:
     explicit Fruit(int _x=1,int _y=1,int _score=25):score{_score} {
         fruitsquare.setposition(_x,_y);
     }
-    Fruit(const Fruit& other): score{other.score}, fruitsquare(other.fruitsquare){
+    Fruit(const Fruit& other): score{other.score}{
         fruitsquare=other.fruitsquare;
     }
     ~Fruit()=default;
@@ -115,7 +112,7 @@ public:
     explicit Star( int _x=1, int _y=1,int _score=50):score{_score} {
         starsquare.setposition(_x,_y);
     }
-    Star(const Star& other): score{other.score},starsquare(other.starsquare){
+    Star(const Star& other): score{other.score}{
         starsquare=other.starsquare;
     }
     ~Star()=default;
@@ -141,7 +138,7 @@ class Player{
     int score;
     Snake playersnake;
 public:
-    explicit Player(const string &_name = "player1", int _score=0, int _x=1, int _y=1):name(_name){
+    explicit Player(const string &_name = "player1", int _score=0, int _x=1, int _y=1){
         name=_name;
         score=_score;
         playersnake.getSnakeHead().setposition(_x,_y);
@@ -174,7 +171,6 @@ public:
 
 int main() {
     Grid grid(30,30);
-    grid=30;
     cout<<"grid: "<<grid<<endl;
     Player player1("andrei",0,2,3);
     Fruit fr1(2,3),fr2(5,10);
