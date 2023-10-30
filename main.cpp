@@ -88,7 +88,7 @@ public:
     explicit Fruit(int _x=1,int _y=1,int _score=25):score{_score} {
         fruitsquare.setposition(_x,_y);
     }
-    Fruit(const Fruit& other): score{other.score}{
+    Fruit(const Fruit& other): score{other.score}, fruitsquare(other.fruitsquare){
         fruitsquare=other.fruitsquare;
     }
     ~Fruit()=default;
@@ -115,7 +115,7 @@ public:
     explicit Star( int _x=1, int _y=1,int _score=50):score{_score} {
         starsquare.setposition(_x,_y);
     }
-    Star(const Star& other): score{other.score}{
+    Star(const Star& other): score{other.score},starsquare(other.starsquare){
         starsquare=other.starsquare;
     }
     ~Star()=default;
@@ -141,7 +141,7 @@ class Player{
     int score;
     Snake playersnake;
 public:
-    explicit Player(const string &_name = "player1", int _score=0, int _x=1, int _y=1){
+    explicit Player(const string &_name = "player1", int _score=0, int _x=1, int _y=1):name(_name){
         name=_name;
         score=_score;
         playersnake.getSnakeHead().setposition(_x,_y);
