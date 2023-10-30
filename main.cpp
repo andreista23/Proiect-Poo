@@ -112,9 +112,7 @@ public:
     explicit Star( int _x=1, int _y=1,int _score=50):score{_score} {
         starsquare.setposition(_x,_y);
     }
-    Star(const Star& other): score{other.score}{
-        starsquare=other.starsquare;
-    }
+    Star(const Star& other): score{other.score},starsquare{other.starsquare}{}
     ~Star()=default;
     GridSquare  getstarsquare() {
         return this->starsquare;
