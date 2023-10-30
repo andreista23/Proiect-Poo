@@ -85,9 +85,7 @@ public:
     explicit Fruit(int _x=1,int _y=1,int _score=25):score{_score} {
         fruitsquare.setposition(_x,_y);
     }
-    Fruit(const Fruit& other): score{other.score}{
-        fruitsquare=other.fruitsquare;
-    }
+    Fruit(const Fruit& other): score{other.score},fruitsquare{other.fruitsquare}{}
     ~Fruit()=default;
     GridSquare  getfruitsquare() {
         return this->fruitsquare;
