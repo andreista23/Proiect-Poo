@@ -49,6 +49,9 @@ public:
         os << "length: " << grid.length << " width: " << grid.width;
         return os;
     }
+    Grid& operator=([[maybe_unused]] int x){
+        return *this;
+    }
 };
 
 class Snake{
@@ -171,6 +174,7 @@ public:
 
 int main() {
     Grid grid(30,30);
+    grid=30;
     cout<<"grid: "<<grid<<endl;
     Player player1("andrei",0,2,3);
     Fruit fr1(2,3),fr2(5,10);
