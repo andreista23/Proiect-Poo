@@ -138,7 +138,7 @@ class Player{
     int score;
     Snake playersnake;
 public:
-    explicit Player(const string &_name = "player1", int _score=0, int _x=1, int _y=1){
+    explicit Player(const string &_name = "player1", int _score=0, int _x=1, int _y=1):name{_name}{
         name=_name;
         score=_score;
         playersnake.getSnakeHead().setposition(_x,_y);
