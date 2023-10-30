@@ -1,4 +1,5 @@
 #include <iostream>
+#include <utility>
 using namespace std;
 
 class Player;
@@ -85,7 +86,7 @@ public:
     explicit Fruit(int _x=1,int _y=1,int _score=25):score{_score} {
         fruitsquare.setposition(_x,_y);
     }
-    Fruit(const Fruit& other): score{other.score},fruitsquare{other.fruitsquare}{}
+    Fruit(const Fruit& other)= default;
     ~Fruit()=default;
     GridSquare  getfruitsquare() {
         return this->fruitsquare;
@@ -110,7 +111,7 @@ public:
     explicit Star( int _x=1, int _y=1,int _score=50):score{_score} {
         starsquare.setposition(_x,_y);
     }
-    Star(const Star& other): score{other.score},starsquare{other.starsquare}{}
+    Star(const Star& other)= default;
     ~Star()=default;
     GridSquare  getstarsquare() {
         return this->starsquare;
@@ -134,7 +135,7 @@ class Player{
     int score;
     Snake playersnake;
 public:
-    explicit Player(const string &_name = "player1", int _score=0, int _x=1, int _y=1):name{_name}{
+    explicit Player(string _name = "player1", int _score=0, int _x=1, int _y=1):name{std::move(_name)}{
         score=_score;
         playersnake.getSnakeHead().setposition(_x,_y);
     }
