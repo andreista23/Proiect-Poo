@@ -170,7 +170,7 @@ public:
 
 
 int main() {
-    Grid grid;
+    Grid grid(30,30);
     cout<<"grid: "<<grid<<endl;
     Player player1("andrei",0,2,3);
     Fruit fr1(2,3),fr2(5,10);
