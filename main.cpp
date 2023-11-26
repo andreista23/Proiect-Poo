@@ -1,6 +1,6 @@
 #include <iostream>
 #include <utility>
-#include "headers/GridSquare.hpp.."
+#include "headers/GridSquare.hpp"
 #include "headers/Grid.h"
 #include "headers/Snake.h"
 #include "headers/Fruit.h"
