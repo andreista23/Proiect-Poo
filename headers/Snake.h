@@ -5,7 +5,7 @@
 #ifndef OOP_SNAKE_H
 #define OOP_SNAKE_H
 #include <iostream>
-#include "GridSquare.hpp"
+#include "GridSquare.h"
 
 class Snake {
     int size;

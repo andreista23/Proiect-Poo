@@ -13,14 +13,14 @@ Snake::Snake(const Snake& other) {
         this->body[i]=other.body[i];
 }
 GridSquare& Snake::getSnakeHead(){
-    return this->body[size-1];
+    return this->body[0];
 }
 void Snake::IncreaseSize(){
     size++;
 }
 std::ostream &operator<<(std::ostream &os, const Snake &snake) {
     os << "size: " << snake.size << " max_size: " <<Snake::max_size << " body: ";
-    for(int i=1;i<=snake.size;i++)
+    for(int i=0;i<snake.size;i++)
         std::cout<<snake.body[i];
     return os;
 }

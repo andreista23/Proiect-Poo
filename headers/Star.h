@@ -5,19 +5,19 @@
 #ifndef OOP_STAR_H
 #define OOP_STAR_H
 #include <iostream>
-#include "GridSquare.hpp"
-
-class Star {
-    GridSquare starsquare;
-    const int score;
+#include "GridSquare.h"
+#include "Objective.h"
+class Star : public Objective{
+    int startype;
 public:
-    explicit Star( int _x=1, int _y=1,int _score=50);
+    explicit Star( int x_=1, int y_=1,int score_=50,int startype_=1);
     Star(const Star& other)= default;
-    ~Star()=default;
-    GridSquare  getstarsquare();
-    [[nodiscard]] int getscore() const;
+    ~Star() override =default;
     friend std::ostream &operator<<(std::ostream &os, const Star &star);
-    Star& operator=([[maybe_unused]] const Star& other);
+    [[nodiscard]] Objective* clone() const override{
+        return new Star(*this);
+    }
+    void print() override;
 };
 
 

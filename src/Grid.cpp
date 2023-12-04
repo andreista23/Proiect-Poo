@@ -3,8 +3,13 @@
 //
 
 #include "../headers/Grid.h"
-Grid::Grid(const int _length, const int _width) : length(_length), width(_width){}
-std::ostream &operator<<(std::ostream &os, const Grid &grid) {
-    os << "length: " << grid.length << " width: " << grid.width;
-    return os;
+
+int Grid::getLength() {
+    return length;
 }
+
+int Grid::getWidth() {
+    return width;
+}
+const int Grid::length=40;
+const int Grid::width=30;

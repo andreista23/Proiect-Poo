@@ -5,20 +5,13 @@
 #include "../headers/Star.h"
 
 
-Star::Star( int _x, int _y,int _score):score{_score} {
-    starsquare.setposition(_x,_y);
-}
-GridSquare  Star::getstarsquare() {
-    return this->starsquare;
-}
-int Star::getscore() const{
-    return score;
-}
+Star::Star( int x_, int y_,int score_,int startype_):Objective(x_,y_,score_),startype(startype_) {}
+
 std::ostream &operator<<(std::ostream &os, const Star &star) {
-    os <<star.starsquare<< " score: " << star.score;
+    os <<static_cast<const Objective&>(star)<<"startype: "<<star.startype;
     return os;
 }
-Star& Star::operator=([[maybe_unused]] const Star& other){
-    starsquare=other.starsquare;
-    return *this;
+
+void Star::print() {
+    std::cout<<"this is a star ";
 }

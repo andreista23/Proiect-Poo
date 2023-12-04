@@ -7,14 +7,15 @@
 #include <iostream>
 
 class Grid {
-    const int length;
-    const int width;
+    static const int length;
+    static const int width;
 public:
-    explicit Grid(const int _length=40, const int _width=30);
     ~Grid()=default;
-
-    friend std::ostream &operator<<(std::ostream &os, const Grid &grid);
+    [[nodiscard]]static int getLength();
+    [[nodiscard]]static int getWidth();
 };
+
+
 
 
 #endif //OOP_GRID_H

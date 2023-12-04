@@ -3,30 +3,39 @@
 //
 
 #include "../headers/Player.h"
-
-Player::Player(std::string _name, int _score, int _x, int _y):name{std::move(_name)}{
-score=_score;
-playersnake.getSnakeHead().setposition(_x,_y);
+Player::Player(std::string name_, int score_, int x_, int y_):name{std::move(name_)},playersnake{1,x_,y_}{
+score=score_;
+worm=new Worm(0,1,25, 29);
 }
 std::ostream& operator<<(std::ostream& os,const Player& pl){
     os<<"name: "<<pl.name<<" score= "<<pl.score<<" player_snake: "<<pl.playersnake;
     return os;
 }
-int Player::EatFruit(Fruit& fr){
-    if(playersnake.getSnakeHead().isSameSquare(fr.getfruitsquare())){
+int Player::EatFruit(Fruit* fr){
+    if(playersnake.getSnakeHead().isSameSquare(fr->getobjsquare())){
         std::cout<<"fruct mancat"<<std::endl;
-        score=score+fr.getscore();
+        score=score+fr->getscore();
         playersnake.IncreaseSize();
         return 1;
     }
     return 0;
 }
-int Player::EatStar(Star& st){
-    if(playersnake.getSnakeHead().isSameSquare(st.getstarsquare())){
+int Player::EatStar(Star* st){
+    if(playersnake.getSnakeHead().isSameSquare(st->getobjsquare())){
         std::cout<<"stea mancata"<<std::endl;
-        score=score+st.getscore();
+        score=score+st->getscore();
         playersnake.IncreaseSize();
         return 1;
     }
     return 0;
+}
+
+void Player::MoveWorm() {
+    try{
+        worm->move();
+    }
+    catch(std::exception& e) {
+        std::cerr << e.what() << '\n';
+    }
+
 }

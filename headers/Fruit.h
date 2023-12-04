@@ -5,19 +5,20 @@
 #ifndef OOP_FRUIT_H
 #define OOP_FRUIT_H
 #include <iostream>
-#include "GridSquare.hpp"
+#include "GridSquare.h"
+#include "Objective.h"
 
-class Fruit {
-    GridSquare fruitsquare;
-    const int score;
+class Fruit : public Objective{
+    std::string color;
 public:
-    explicit Fruit(int _x=1,int _y=1,int _score=25);
+    explicit Fruit(int x_=1,int y_=1,int score_=25,const std::string& color_ = "red");
     Fruit(const Fruit& other)= default;
-    ~Fruit()=default;
-    GridSquare  getfruitsquare();
-    [[nodiscard]] int getscore() const;
+    ~Fruit() override =default;
+    [[nodiscard]] Objective* clone() const override{
+        return new Fruit(*this);
+    }
     friend std::ostream &operator<<(std::ostream &os, const Fruit &fruit);
-    Fruit& operator=([[maybe_unused]] const Fruit& other);
+    void print() override;
 };
 
 

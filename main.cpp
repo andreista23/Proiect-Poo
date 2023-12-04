@@ -1,6 +1,7 @@
 #include <iostream>
 #include <utility>
-#include "headers/GridSquare.hpp"
+#include <vector>
+#include "headers/GridSquare.h"
 #include "headers/Grid.h"
 #include "headers/Snake.h"
 #include "headers/Fruit.h"
@@ -11,15 +12,45 @@ using namespace std;
 const int GridSquare:: square_size=20;
 
 int main() {
-    Grid grid(30,30);
-    cout<<"grid: "<<grid<<endl;
+    vector<Objective*> objective;
+    try{
+    objective.push_back(new Fruit(2,3));
+    }
+    catch(exception& e) {
+        cerr << e.what() << '\n';
+        return 1;
+    }
+    try{
+    objective.push_back(new Fruit(5,10));
+    }
+    catch(exception& e) {
+        cerr << e.what() << '\n';
+        return 1;
+    }
+    try{
+    objective.push_back(new Star(1,1));
+    } catch(exception& e) {
+        cerr << e.what() << '\n';
+        return 1;
+    }
+    try{
+    objective.push_back(new Star(2,3));
+    } catch(exception& e) {
+        cerr << e.what() << '\n';
+        return 1;
+    }
+    cout<<*dynamic_cast<Fruit*>(objective[0])<<endl;
     Player player1("andrei",0,2,3);
-    Fruit fr1(2,3),fr2(5,10);
-    Star st(1,1),st2(2,3);
-    player1.EatFruit(fr1);
-    player1.EatFruit(fr2);
-    player1.EatStar(st);
-    player1.EatStar(st2);
+    cout<<player1<<endl;
+    for (int i = 0; i<Objective::getnumber();i++){
+        if(dynamic_cast<Fruit*>(objective[i]))
+            player1.EatFruit(dynamic_cast<Fruit*>(objective[i]));
+        else if(dynamic_cast<Star*>(objective[i]))
+            player1.EatStar(dynamic_cast<Star*>(objective[i]));
+    }
+    player1.MoveWorm();
     cout<<player1;
+    for (int i = 0; i<Objective::getnumber();i++)
+        delete(objective[i]);
     return 0;
 }

@@ -91,7 +91,7 @@ endfunction()
 
 # NOTE: update executable name in .github/workflows/cmake.yml:25 when changing name here
 add_executable(${PROJECT_NAME} main.cpp
-        headers/GridSquare.hpp
+        headers/GridSquare.h
         src/GridSquare.cpp
         src/Grid.cpp
         headers/Grid.h
@@ -102,7 +102,13 @@ add_executable(${PROJECT_NAME} main.cpp
         src/Star.cpp
         headers/Star.h
         src/Fruit.cpp
-        headers/Fruit.h)
+        headers/Fruit.h
+        src/Objective.cpp
+        headers/Objective.h
+        src/Worm.cpp
+        headers/Worm.h
+        headers/Exceptions.h
+        src/Exceptions.cpp)
 
 ###############################################################################
 

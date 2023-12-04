@@ -7,18 +7,23 @@
 #include <iostream>
 #include "Star.h"
 #include "Fruit.h"
+#include "Worm.h"
 #include "Snake.h"
 
 class Player {
     std::string name;
     int score;
     Snake playersnake;
+    Objective* worm;
 public:
-    explicit Player(std::string _name = "player1", int _score=0, int _x=1, int _y=1);
-    ~Player()=default;
+    explicit Player(std::string name_ = "player1", int score_=0, int x_=1, int y_=1);
+    ~Player(){
+        delete worm;
+    }
     friend std::ostream& operator<<(std::ostream& os,const Player& pl);
-    int EatFruit(Fruit& fr);
-    int EatStar(Star& st);
+    int EatFruit(Fruit* fr);
+    int EatStar(Star* st);
+    void MoveWorm();
 };
 
 
