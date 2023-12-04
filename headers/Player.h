@@ -21,7 +21,7 @@ public:
         delete worm;
     }
 
-    [[maybe_unused]] Player (Player& other);
+    [[maybe_unused]] Player (const Player& other);
     Player& operator=(Player other);
     friend std::ostream& operator<<(std::ostream& os,const Player& pl);
     int EatFruit(Fruit* fr);

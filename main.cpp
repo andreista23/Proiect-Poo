@@ -1,9 +1,6 @@
 #include <iostream>
-#include <utility>
 #include <vector>
 #include "headers/GridSquare.h"
-#include "headers/Grid.h"
-#include "headers/Snake.h"
 #include "headers/Fruit.h"
 #include "headers/Star.h"
 #include "headers/Player.h"
@@ -48,6 +45,8 @@ int main() {
         else if(dynamic_cast<Star*>(objective[i]))
             player1.EatStar(dynamic_cast<Star*>(objective[i]));
     }
+    objective[0]->print();
+    objective[2]->print();
     player1.MoveWorm();
     cout<<player1;
     for (int i = 0; i<Objective::getnumber();i++)
