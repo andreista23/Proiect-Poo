@@ -39,7 +39,7 @@ int main() {
     cout<<*dynamic_cast<Fruit*>(objective[0])<<endl;
     Player player1("andrei",0,2,3);
     cout<<player1<<endl;
-    for (int i = 0; i<Objective::getnumber();i++){
+    for (int i = 1; i<Objective::getnumber()-1;i++){
         if(dynamic_cast<Fruit*>(objective[i]))
             player1.EatFruit(dynamic_cast<Fruit*>(objective[i]));
         else if(dynamic_cast<Star*>(objective[i]))
