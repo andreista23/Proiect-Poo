@@ -39,3 +39,13 @@ void Player::MoveWorm() {
     }
 
 }
+
+Player& Player::operator=(Player other) {
+    if(&other!=this){
+        this->playersnake=other.playersnake;
+        this->score=other.score;
+        this->name=other.name;
+        this->worm=other.worm;
+        return *this;
+    }
+}
