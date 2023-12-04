@@ -46,6 +46,6 @@ Player& Player::operator=(Player other) {
         this->score=other.score;
         this->name=other.name;
         this->worm=other.worm;
-        return *this;
     }
+    return *this;
 }
