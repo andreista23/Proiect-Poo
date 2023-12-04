@@ -49,3 +49,10 @@ Player& Player::operator=(Player other) {
     }
     return *this;
 }
+
+[[maybe_unused]] Player::Player(Player& other) {
+    this->score=other.score;
+    this->playersnake=other.playersnake;
+    this->name=other.name;
+    this->worm=other.worm;
+}

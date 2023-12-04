@@ -20,6 +20,8 @@ public:
     ~Player(){
         delete worm;
     }
+
+    [[maybe_unused]] Player (Player& other);
     Player& operator=(Player other);
     friend std::ostream& operator<<(std::ostream& os,const Player& pl);
     int EatFruit(Fruit* fr);
