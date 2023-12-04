@@ -54,5 +54,6 @@ Player& Player::operator=(Player other) {
     this->score=other.score;
     this->playersnake=other.playersnake;
     this->name=other.name;
+    this->worm=new Worm(0,0);
     this->worm=other.worm;
 }

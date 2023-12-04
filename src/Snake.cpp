@@ -7,11 +7,6 @@
 Snake::Snake(int _size,int _x, int _y) : size(_size) {
     body[size].setposition(_x,_y);
 }
-Snake::Snake(const Snake& other) {
-    this->size=other.size;
-    for(int i=0;i<max_size;i++)
-        this->body[i]=other.body[i];
-}
 GridSquare& Snake::getSnakeHead(){
     return this->body[0];
 }

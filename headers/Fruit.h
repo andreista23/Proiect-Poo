@@ -18,7 +18,7 @@ public:
         return new Fruit(*this);
     }
     friend std::ostream &operator<<(std::ostream &os, const Fruit &fruit);
-    void print() override;
+    [[maybe_unused]] void print() override;
 };
 
 

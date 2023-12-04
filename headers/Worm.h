@@ -18,7 +18,7 @@ public:
         return new Worm(*this);
     }
     void move() override;
-    void print() override;
+    [[maybe_unused]] void print() override;
 };
 
 

@@ -17,7 +17,7 @@ public:
     [[nodiscard]] Objective* clone() const override{
         return new Star(*this);
     }
-    void print() override;
+    [[maybe_unused]] void print() override;
 };
 
 

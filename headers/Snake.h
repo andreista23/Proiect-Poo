@@ -13,7 +13,7 @@ class Snake {
     GridSquare body[max_size];
 public:
     explicit Snake(int _size=1,int _x=1, int _y=1);
-    Snake(const Snake& other);
+    Snake(const Snake& other)=default;
     ~Snake()=default;
     GridSquare& getSnakeHead();
     void IncreaseSize();
