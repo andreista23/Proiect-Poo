@@ -13,6 +13,6 @@ std::ostream &operator<<(std::ostream &os, const Fruit &fruit) {
 }
 
 void Fruit::print() {
-    std::cout<<"this is a fruit ";
+    std::cout<<"this is a fruit "<<std::endl;
 }
 

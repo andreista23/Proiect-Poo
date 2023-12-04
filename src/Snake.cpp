@@ -5,7 +5,7 @@
 #include "../headers/Snake.h"
 
 Snake::Snake(int _size,int _x, int _y) : size(_size) {
-    body[size].setposition(_x,_y);
+    body[0].setposition(_x,_y);
 }
 GridSquare& Snake::getSnakeHead(){
     return this->body[0];

@@ -13,5 +13,5 @@ std::ostream &operator<<(std::ostream &os, const Star &star) {
 }
 
 void Star::print() {
-    std::cout<<"this is a star ";
+    std::cout<<"this is a star "<<std::endl;
 }
