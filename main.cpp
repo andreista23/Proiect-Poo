@@ -51,7 +51,7 @@ int main() {
     objective[2]->print();
     player1.MoveWorm();
     cout<<player1;
-    for (int i = 0; i<Objective::getnumber();i++)
-        delete(objective[i]);
+    for (auto & i : objective)
+        delete(i);
     return 0;
 }
