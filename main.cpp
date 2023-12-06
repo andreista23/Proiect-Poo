@@ -11,39 +11,40 @@ const int GridSquare:: square_size=20;
 int main() {
     vector<Objective*> objective;
     try{
-    objective.push_back(new Fruit(5,3));
+    objective.push_back(new Fruit(8,3));
     }
     catch(exception& e) {
         cerr << e.what() << '\n';
         return 1;
     }
     try{
-    objective.push_back(new Fruit(2,3));
+    objective.push_back(new Fruit(3,3));
     }
     catch(exception& e) {
         cerr << e.what() << '\n';
         return 1;
     }
     try{
-    objective.push_back(new Star(1,1));
+    objective.push_back(new Star(1,3));
     }
     catch(exception& e) {
         cerr << e.what() << '\n';
         return 1;
     }
     try{
-    objective.push_back(new Star(2,3));
+    objective.push_back(new Star(3,3));
     }
     catch(exception& e) {
         cerr << e.what() << '\n';
         return 1;
     }
-    Player player1("andrei",0,2,3);
+    cout<<Objective::getnumber();
+    Player player1("andrei",0,3,3);
     cout<<player1<<endl;
-    for (int i = 0; i<Objective::getnumber();i++){
-        if(auto fruit = dynamic_cast<Fruit*>(objective[i]))
+    for (auto & i : objective){
+        if(auto fruit = dynamic_cast<Fruit*>(i))
             player1.EatFruit(fruit);
-        else if(auto star = dynamic_cast<Star*>(objective[i]))
+        else if(auto star = dynamic_cast<Star*>(i))
             player1.EatStar(star);
     }
     objective[0]->print();
