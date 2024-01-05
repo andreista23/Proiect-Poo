@@ -8,6 +8,8 @@ set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+
+
 option(WARNINGS_AS_ERRORS "Treat warnings as errors" OFF)
 
 if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
@@ -153,3 +155,9 @@ set_custom_stdlib_and_sanitizers(${PROJECT_NAME} true)
 install(TARGETS ${PROJECT_NAME} DESTINATION bin)
 # install(DIRECTORY some_dir1 some_dir2 DESTINATION bin)
 # install(FILES some_file1.txt some_file2.md DESTINATION bin)
+set(SFML_STATIC_LIBRARIES TRUE)
+set(SFML_DIR SFML/lib/cmake/SFML)
+find_package(SFML COMPONENTS system window graphics audio network REQUIRED)
+
+include_directories(SFML/include/SFML)
+target_link_libraries(oop sfml-system sfml-window sfml-graphics sfml-audio)

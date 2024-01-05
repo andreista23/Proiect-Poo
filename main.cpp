@@ -4,6 +4,7 @@
 #include "headers/Fruit.h"
 #include "headers/Star.h"
 #include "headers/Player.h"
+#include <SFML/Graphics.hpp>
 using namespace std;
 
 const int GridSquare:: square_size=20;
@@ -53,5 +54,22 @@ int main() {
     cout<<player1;
     for (auto & i : objective)
         delete(i);
+    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
+    sf::CircleShape shape(100.f);
+    shape.setFillColor(sf::Color::Green);
+
+    while (window.isOpen())
+    {
+        sf::Event event;
+        while (window.pollEvent(event))
+        {
+            if (event.type == sf::Event::Closed)
+                window.close();
+        }
+
+        window.clear();
+        window.draw(shape);
+        window.display();
+    }
     return 0;
 }
