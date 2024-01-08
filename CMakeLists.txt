@@ -162,6 +162,8 @@ install(TARGETS ${PROJECT_NAME} DESTINATION bin)
 # install(FILES some_file1.txt some_file2.md DESTINATION bin)
 set(SFML_STATIC_LIBRARIES TRUE)
 set(SFML_DIR SFML/lib/cmake/SFML)
+set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static-libstdc++ -static-libgcc")
+set(CMAKE_EXE_LINKER_FLAGS "-static")
 find_package(SFML COMPONENTS system window graphics audio network REQUIRED)
 
 include_directories(SFML/include/SFML)
