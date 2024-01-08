@@ -71,7 +71,7 @@ void Game::Loop() {
     }
     window.clear();
     player1.Draw(grd,window);
-    fruit.Draw(grd,window,&FruitTexture,sf::Color::Red);
+    fruit.Draw(grd,window,&FruitTexture);
     DrawObstacles(window);
     if(GameOver){
         DrawGameOver(window);

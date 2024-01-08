@@ -12,7 +12,7 @@
 #include "Player.h"
 #include "Obstacle.h"
 #include <random>
-#include <../SFML/Graphics.hpp>
+#include <SFML/Graphics.hpp>
 
 class Game {
     Player player1;

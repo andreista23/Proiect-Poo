@@ -22,7 +22,7 @@ void Grid::DrawCell(Location draw_loc,sf::RenderWindow& window,sf::Color color) 
     window.draw(cell);
 }
 
-void Grid::DrawCell(Location draw_loc, sf::RenderWindow &window, sf::Texture* texture, sf::Color color) {
+void Grid::DrawCell(Location draw_loc, sf::RenderWindow &window, sf::Texture* texture) {
     sf::RectangleShape cell(sf::Vector2f(Grid::square_size, Grid::square_size));
     cell.setPosition((float)draw_loc.getX()*Grid::square_size,(float)draw_loc.getY()*Grid::square_size);
     //cell.setFillColor(color);

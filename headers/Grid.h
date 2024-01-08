@@ -17,7 +17,7 @@ public:
     [[nodiscard]]static int getLength();
     [[nodiscard]]static int getWidth();
     void DrawCell(Location draw_loc,sf::RenderWindow& window,sf::Color color = sf::Color::Black);
-    void DrawCell(Location draw_loc,sf::RenderWindow& window,sf::Texture* texture,sf::Color color = sf::Color::Black);
+    void DrawCell(Location draw_loc,sf::RenderWindow& window,sf::Texture* texture);
 };
 
 

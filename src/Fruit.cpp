@@ -11,7 +11,7 @@ void Fruit::print() {
     std::cout<<"this is a fruit "<<std::endl;
 }
 
-void Fruit::Draw(Grid &grd, sf::RenderWindow &window,sf::Texture* texture,sf::Color color) {
-    objsquare.Draw(grd,window,texture,color);
+void Fruit::Draw(Grid &grd, sf::RenderWindow &window,sf::Texture* texture) {
+    objsquare.Draw(grd,window,texture);
 }
 
