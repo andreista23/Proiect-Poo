@@ -110,7 +110,14 @@ add_executable(${PROJECT_NAME} main.cpp
         src/Worm.cpp
         headers/Worm.h
         headers/Exceptions.h
-        src/Exceptions.cpp)
+        src/Exceptions.cpp
+        src/Game.cpp
+        headers/Game.h
+        src/Location.cpp
+        headers/Location.h
+        headers/vector.h
+        src/Obstacle.cpp
+        headers/Obstacle.h)
 
 ###############################################################################
 

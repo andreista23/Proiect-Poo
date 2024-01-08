@@ -7,6 +7,3 @@ const char *ExceptionOutOfMapBounds::what() const noexcept {
     return "Object is out of bounds";
 }
 
-const char *ExceptionMoveOutOfBounds::what() const noexcept {
-    return "Object cannot move out of bounds";
-}

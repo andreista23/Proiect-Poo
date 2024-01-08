@@ -8,10 +8,9 @@
 #include "Objective.h"
 
 class Worm : public Objective{
-    int speedx;
-    int speedy;
+    Location speed;
 public:
-    explicit Worm(int speedx_,int speedy_,int x_=1,int y_=1,int score_=25);
+    explicit Worm(int speedx_,int speedy_,std::mt19937 rng);
     Worm(const Worm& other)= default;
     ~Worm() override =default;
     [[nodiscard]] Objective* clone() const override{

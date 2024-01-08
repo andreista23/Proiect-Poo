@@ -11,14 +11,14 @@
 class Fruit : public Objective{
     std::string color;
 public:
-    explicit Fruit(int x_=1,int y_=1,int score_=25,const std::string& color_ = "red");
+    explicit Fruit(std::mt19937 rng,const std::string& color_ = "red");
     Fruit(const Fruit& other)= default;
     ~Fruit() override =default;
     [[nodiscard]] Objective* clone() const override{
         return new Fruit(*this);
     }
-    friend std::ostream &operator<<(std::ostream &os, const Fruit &fruit);
     [[maybe_unused]] void print() override;
+    void Draw(Grid& grd,sf::RenderWindow& window,sf::Color color);
 };
 
 

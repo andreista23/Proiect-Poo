@@ -10,10 +10,9 @@
 class Star : public Objective{
     int startype;
 public:
-    explicit Star( int x_=1, int y_=1,int score_=50,int startype_=1);
+    explicit Star( std::mt19937 rng,int startype_=1);
     Star(const Star& other)= default;
     ~Star() override =default;
-    friend std::ostream &operator<<(std::ostream &os, const Star &star);
     [[nodiscard]] Objective* clone() const override{
         return new Star(*this);
     }

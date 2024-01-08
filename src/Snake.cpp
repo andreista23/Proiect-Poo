@@ -5,17 +5,47 @@
 #include "../headers/Snake.h"
 
 Snake::Snake(int _size,int _x, int _y) : size(_size) {
-    body[0].setposition(_x,_y);
+    body.at(0).setposition(Location(_x,_y));
 }
 GridSquare& Snake::getSnakeHead(){
-    return this->body[0];
+    return this-> body.at(0);
 }
 void Snake::IncreaseSize(){
     size++;
+    body.at(size-1).setposition(body.at(size-2).getLoc());
 }
-std::ostream &operator<<(std::ostream &os, const Snake &snake) {
-    os << "size: " << snake.size << " max_size: " <<Snake::max_size << " body: ";
-    for(int i=0;i<snake.size;i++)
-        std::cout<<snake.body[i];
-    return os;
+void Snake::Move(Location delta_loc){
+    int i;
+    for(i=this->size-1;i>0;i--)
+        body.at(i).setposition(body.at(i-1).getLoc());
+    body.at(0).move(delta_loc);
+}
+
+void Snake::Draw(Grid &grd,sf::RenderWindow& window,sf::Color color) {
+    int i;
+    for(i=0;i<size;i++)
+        body.at(i).Draw(grd,window,color);
+}
+
+bool Snake::IsOutsideGrid(Location delta_loc) {
+    Location loc=getSnakeHead().getLoc();
+    loc.Add(delta_loc);
+    if(loc.getX()<0||loc.getX()>=Grid::getLength())
+        return true;
+    if(loc.getY()<0||loc.getY()>=Grid::getWidth())
+        return true;
+    return false;
+
+}
+
+bool Snake::IsInsideSnake(Location loc) {
+    int i;
+    for(i=size-2;i>0;i--)
+        if(loc == body.at(i).getLoc())
+            return true;
+    return false;
+}
+
+int Snake::getSize() const {
+    return size;
 }

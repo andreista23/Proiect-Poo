@@ -6,21 +6,20 @@
 #define OOP_GRIDSQUARE_H
 #include <iostream>
 #include "Grid.h"
+#include "Location.h"
 #include "Exceptions.h"
 class GridSquare{
-    int x;
-    int y;
+    Location loc;
     bool full;
-    static const int square_size;
 public:
     explicit GridSquare(int x_=1, int y_=1, bool full_=false);
 
     [[maybe_unused]] GridSquare(const GridSquare& other);
     ~GridSquare()=default;
     [[nodiscard]] bool isSameSquare(const GridSquare& other) const;
-    void  setposition(int x_, int y_);
-    void move(int x_, int y_);
-    friend std::ostream &operator<<(std::ostream &os, const GridSquare &square);
-    GridSquare& operator=(const GridSquare& gr)= default;
+    void  setposition(Location newloc);
+    void move(Location delta_loc);
+    void Draw(Grid& grd,sf::RenderWindow& window,sf::Color color) const;
+    [[nodiscard]] const Location &getLoc() const;
 };
 #endif //OOP_GRIDSQUARE_H

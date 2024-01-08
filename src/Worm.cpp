@@ -4,10 +4,10 @@
 
 #include "../headers/Worm.h"
 
-Worm::Worm(int speedx_,int speedy_,int x_,int y_,int score_):Objective(x_,y_,score_),speedx(speedx_),speedy(speedy_) {}
+Worm::Worm(int speedx_,int speedy_,std::mt19937 rng):Objective(rng),speed(speedx_,speedy_) {}
 
 void Worm::move(){
-    this->objsquare.move(speedx,speedy);
+    this->objsquare.move(speed);
 }
 
 void Worm::print() {

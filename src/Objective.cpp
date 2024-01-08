@@ -4,27 +4,37 @@
 
 #include "../headers/Objective.h"
 
-Objective::Objective(int x_,int y_,  int score_) : score(score_), objsquare(x_,y_) {
-    Objective::number++;
+Objective::Objective(std::mt19937& rng,  int score_) : score(score_) {
+    this->respawn(rng, nullptr,0);
 }
 
 GridSquare Objective::getobjsquare() {
     return this->objsquare;
 }
-int Objective::getscore() const{
+
+[[maybe_unused]] int Objective::getscore() const{
     return score;
-}
-std::ostream &operator<<(std::ostream &os, const Objective &obj) {
-    os <<obj.objsquare<< " score: " << obj.score;
-    return os;
 }
 
 [[maybe_unused]] void Objective::print() {
     std::cout<<"this is an objective ";
 }
-int Objective :: number = 0;
 
-int Objective::getnumber() {
-    return number;
+void Objective::respawn(std::mt19937 &rng, Location loc_to_avoid[],int size ) {
+    std::uniform_int_distribution<int> xDist(0,Grid::getLength()-1);
+    std::uniform_int_distribution<int> yDist(0,Grid::getWidth()-1);
+    Location newLoc;
+    bool ok;
+    do{
+        ok=true;
+        newLoc.x = xDist(rng);
+        newLoc.y = yDist(rng);
+        for(int i=0;i<size;i++)
+            if(newLoc==loc_to_avoid[i]){
+                ok=false;
+                break;
+            }
+    }while(!ok);
+    objsquare.setposition(newLoc);
 }
 
