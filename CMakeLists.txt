@@ -160,11 +160,17 @@ set_custom_stdlib_and_sanitizers(${PROJECT_NAME} true)
 install(TARGETS ${PROJECT_NAME} DESTINATION bin)
 # install(DIRECTORY some_dir1 some_dir2 DESTINATION bin)
 # install(FILES some_file1.txt some_file2.md DESTINATION bin)
-#set(SFML_STATIC_LIBRARIES TRUE)
+set(SFML_STATIC_LIBRARIES TRUE)
 set(SFML_DIR SFML/lib/cmake/SFML)
 set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static-libstdc++ -static-libgcc")
 set(CMAKE_EXE_LINKER_FLAGS "-static")
 find_package(SFML COMPONENTS system window graphics audio network REQUIRED)
-
+set(SFML_LIBS
+        sfml-audio-s
+        sfml-graphics-s
+        sfml-network-s
+        sfml-system-s
+        sfml-window-s
+)
 include_directories(SFML/include/SFML)
 target_link_libraries(oop sfml-system sfml-window sfml-graphics sfml-audio)
