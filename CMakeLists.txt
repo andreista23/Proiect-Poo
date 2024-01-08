@@ -107,8 +107,6 @@ add_executable(${PROJECT_NAME} main.cpp
         headers/Fruit.h
         src/Objective.cpp
         headers/Objective.h
-        src/Worm.cpp
-        headers/Worm.h
         headers/Exceptions.h
         src/Exceptions.cpp
         src/Game.cpp

@@ -32,8 +32,8 @@ void Player::Move(Location delta_loc) {
     playersnake.Move(delta_loc);
 }
 
-void Player::Draw(Grid &grd,sf::RenderWindow& window,sf::Color color) {
-    playersnake.Draw(grd,window,color);
+void Player::Draw(Grid &grd,sf::RenderWindow& window) {
+    playersnake.Draw(grd,window);
 }
 
 bool Player::Eat(Objective &obj) {

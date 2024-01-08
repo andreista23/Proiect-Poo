@@ -30,6 +30,7 @@ class Game {
     Location loc_to_avoid[obstacle_number];
     sf::Clock clock;
     sf::Texture GameOverTexture;
+    sf::Texture FruitTexture;
     void DrawGameOver(sf::RenderWindow& wnd);
     void DrawObstacles(sf::RenderWindow& wnd);
     void GenerateObstacles(std::mt19937& rng2);

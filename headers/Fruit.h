@@ -18,7 +18,7 @@ public:
         return new Fruit(*this);
     }
     [[maybe_unused]] void print() override;
-    void Draw(Grid& grd,sf::RenderWindow& window,sf::Color color);
+    void Draw(Grid& grd,sf::RenderWindow& window,sf::Texture* texture,sf::Color color);
 };
 
 

@@ -20,6 +20,7 @@ public:
     void  setposition(Location newloc);
     void move(Location delta_loc);
     void Draw(Grid& grd,sf::RenderWindow& window,sf::Color color) const;
+    void Draw(Grid& grd,sf::RenderWindow& window,sf::Texture* texture,sf::Color color) const;
     [[nodiscard]] const Location &getLoc() const;
 };
 #endif //OOP_GRIDSQUARE_H

@@ -32,4 +32,8 @@ void GridSquare::Draw(Grid &grd,sf::RenderWindow& window,sf::Color color) const 
     grd.DrawCell(loc,window,color);
 }
 
+void GridSquare::Draw(Grid &grd, sf::RenderWindow &window, sf::Texture* texture, sf::Color color) const {
+    grd.DrawCell(loc,window,texture,color);
+}
+
 

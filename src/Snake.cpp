@@ -6,6 +6,8 @@
 
 Snake::Snake(int _size,int _x, int _y) : size(_size) {
     body.at(0).setposition(Location(_x,_y));
+    head_color = sf::Color::Green;
+    body_color = sf::Color(1,80,42);
 }
 GridSquare& Snake::getSnakeHead(){
     return this-> body.at(0);
@@ -21,10 +23,11 @@ void Snake::Move(Location delta_loc){
     body.at(0).move(delta_loc);
 }
 
-void Snake::Draw(Grid &grd,sf::RenderWindow& window,sf::Color color) {
+void Snake::Draw(Grid &grd,sf::RenderWindow& window) {
     int i;
-    for(i=0;i<size;i++)
-        body.at(i).Draw(grd,window,color);
+    body.at(0).Draw(grd,window,head_color);
+    for(i=1;i<size;i++)
+        body.at(i).Draw(grd,window,body_color);
 }
 
 bool Snake::IsOutsideGrid(Location delta_loc) {

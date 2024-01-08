@@ -8,6 +8,7 @@ sf::RenderWindow window(sf::VideoMode(800, 600), "Snake");
 
 Game::Game() : rng(std::random_device()()), rng2(std::random_device()()), fruit(rng) {
     GameOverTexture.loadFromFile("../textures/GameOver.png");
+    FruitTexture.loadFromFile("../textures/fruit.png");
     GenerateObstacles(rng2);
     fruit.respawn(rng,loc_to_avoid,obstacle_number);
 }
@@ -69,8 +70,8 @@ void Game::Loop() {
         }
     }
     window.clear();
-    player1.Draw(grd,window,sf::Color::Green);
-    fruit.Draw(grd,window,sf::Color::Red);
+    player1.Draw(grd,window);
+    fruit.Draw(grd,window,&FruitTexture,sf::Color::Red);
     DrawObstacles(window);
     if(GameOver){
         DrawGameOver(window);

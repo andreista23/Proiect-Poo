@@ -1,13 +1,13 @@
 //
 // Created by nalee on 11/26/2023.
 //
+//clasa jucatorului, cu toate functiile necesare pentru aceasta
 
 #ifndef OOP_PLAYER_H
 #define OOP_PLAYER_H
 #include <iostream>
 #include "Star.h"
 #include "Fruit.h"
-#include "Worm.h"
 #include "Snake.h"
 
 class Player {
@@ -22,7 +22,7 @@ public:
     bool Eat(Objective& obj);
     void Grow();
     void Move(Location delta_loc);
-    void Draw(Grid& grd,sf::RenderWindow& window,sf::Color color);
+    void Draw(Grid& grd,sf::RenderWindow& window);
     bool IsOutsideGrid(Location delta_loc);
     bool HeadInTail(Location delta_loc);
     bool IsInsideSnake(Location loc);
