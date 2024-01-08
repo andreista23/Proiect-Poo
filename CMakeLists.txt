@@ -172,5 +172,18 @@ set(SFML_LIBS
         sfml-system-s
         sfml-window-s
 )
+set(SFML_DEPENDENCIES
+        opengl32 # window, graphics
+        winmm # window, system
+        gdi32 # window
+        freetype # graphics
+        openal32 # audio
+        FLAC # audio
+        vorbis # audio
+        vorbisfile # audio
+        vorbisenc # audio
+        ogg # audio
+        ws2_32 # network
+)
 include_directories(SFML/include/SFML)
 target_link_libraries(oop sfml-system sfml-window sfml-graphics sfml-audio)
